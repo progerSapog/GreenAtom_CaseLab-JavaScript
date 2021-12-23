@@ -11,18 +11,19 @@ function censor()
     function pushPair(el1, el2 = undefined)
     {
         //1 параметр - замена слов
-        if (el2 === undefined)
+        if (typeof el2 === 'undefined')
         {
             for (let pair of pairArr)
             {
+                //если строк содержит первый элемент из пары, то делаем замену
                 if (el1.includes(pair[0]))
                 {
-                    el1 = el1.replace(pair[0], pair[1]);
+                    el1 = el1.replace(new RegExp(pair[0], "ig"), pair[1]);
                 }
             }
             return el1;
         }
-        //ДВа параметра - записываем пару
+        //Дdа параметра - записываем пару
         else
         {
             pairArr.push([el1, el2])
