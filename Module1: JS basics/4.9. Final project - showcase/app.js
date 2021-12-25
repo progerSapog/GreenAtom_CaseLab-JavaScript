@@ -40,7 +40,7 @@ function removeFromBasket(productId) {
     // TODO: описать логику удаления товара из корзины
 
     //создаем новый массив без элемента с этим id
-    order = order.filter(item => item.id != productId)
+    order = order.filter(item => item.id !== productId)
 
     // Эти строчки не трогаем, они отвечают за переотрисовку страницы
     renderCart();
