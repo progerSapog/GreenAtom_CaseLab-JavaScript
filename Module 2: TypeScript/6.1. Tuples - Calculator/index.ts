@@ -4,6 +4,9 @@
     Типы SumAction, LengthAction, ZeroAction также можно менять.
 */
 
+/*
+    Сложно, непонятно, хотелось бы разбора
+*/
 type SumAction = (...params: any) => any;
 type LengthAction = (...params: any) => any;
 type ZeroAction = (...params: any) => any;
