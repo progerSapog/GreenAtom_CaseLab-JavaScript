@@ -10,10 +10,10 @@ type ZeroAction = (...params: any) => any;
 type LogAction = (...params: any) => (...params: any) => any;
 
 interface Calculator {
-    (command: string): SumAction;
-    (command: string): LengthAction;
-    (command: string): ZeroAction;
-    (command: string): LogAction;
+    (command: string): (str: string) => LengthAction;
+    (command: string): (a: any) => ZeroAction;
+    (command: string): (a: number, b: number) => SumAction;
+    (command: string): (a: number) => (b: number) => LogAction;
 }
 
 /* Этот код трогать не нужно */
