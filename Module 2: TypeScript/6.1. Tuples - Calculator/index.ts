@@ -7,16 +7,16 @@
 /*
     Сложно, непонятно, хотелось бы разбора
 */
-type SumAction = (...params: any) => any;
-type LengthAction = (...params: any) => any;
-type ZeroAction = (...params: any) => any;
-type LogAction = (...params: any) => (...params: any) => any;
+type SumAction = (...params: [number, number]) => number;
+type LengthAction = (...params: [string]) => number;
+type ZeroAction = (...params: [string | number]) => boolean;
+type LogAction = (...params: [number]) => (...params: [number]) => any;
 
 interface Calculator {
-    (command: string): (str: string) => LengthAction;
-    (command: string): (a: any) => ZeroAction;
-    (command: string): (a: number, b: number) => SumAction;
-    (command: string): (a: number) => (b: number) => LogAction;
+    (command: 'sum'): SumAction;
+    (command: 'length'): LengthAction;
+    (command: 'zero'): ZeroAction;
+    (command: 'log'): LogAction;
 }
 
 /* Этот код трогать не нужно */
